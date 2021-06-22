@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/modules/login/login_page.dart';
+// import 'package:payflow/modules/splash/splash_page.dart';
+import 'package:payflow/shared/themes/app_colors.dart';
 
-void main() => runApp(App());
+void main() => runApp(AppWidget());
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+class AppWidget extends StatelessWidget {
+  const AppWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Pay Flow',
+      theme: ThemeData(
+        primaryColor: AppColors.primary,
+      ),
+      home: LoginPage(),
+    );
   }
 }
