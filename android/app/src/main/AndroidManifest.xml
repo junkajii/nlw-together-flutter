@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nlw_together_flutter">
+    package="com.example.payflow">
    <application
-        android:label="nlw_together_flutter"
+        android:label="com.example.payflow"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
