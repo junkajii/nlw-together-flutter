@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "358927479687",
+    "project_id": "payflow-1b713",
+    "storage_bucket": "payflow-1b713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358927479687:android:523e812785645412e15922",
+        "android_client_info": {
+          "package_name": "com.example.payflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358927479687-ofdvqg4ls82im17hlt4r5e7rf0j9qtqn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.payflow",
+            "certificate_hash": "ecb33470fee0cd78e543ca2fa1a9e99b16c722c5"
+          }
+        },
+        {
+          "client_id": "358927479687-h1374e2n4o4a9o4qo1h80frhvqm7jkfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC815CrirpMjHu_tJdB8HaTZuI4FZefb1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358927479687-h1374e2n4o4a9o4qo1h80frhvqm7jkfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
