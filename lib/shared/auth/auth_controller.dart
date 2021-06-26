@@ -11,7 +11,7 @@ class AuthController {
     if (user == null) {
       Navigator.pushReplacementNamed(
         context,
-        '/home',
+        '/login',
       );
       return;
     }
@@ -19,7 +19,8 @@ class AuthController {
     _user = user;
     Navigator.pushReplacementNamed(
       context,
-      '/login',
+      '/home',
+      arguments: user,
     );
   }
 

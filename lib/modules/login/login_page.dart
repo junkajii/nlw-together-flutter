@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Container(
             width: size.width,
-            height: 413,
+            height: 363,
             child: Stack(
               children: [
                 Container(
@@ -35,14 +35,17 @@ class _LoginPageState extends State<LoginPage> {
                   height: size.height * 0.4,
                   color: AppColors.primary,
                 ),
-                Positioned(
-                  top: 40,
-                  left: 0,
-                  right: 0,
-                  child: Image.asset(
-                    AppImages.person,
-                    width: 208,
-                    height: 373,
+                SafeArea(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Image.asset(
+                          AppImages.person,
+                          width: 158,
+                          height: 323,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -52,9 +55,9 @@ class _LoginPageState extends State<LoginPage> {
           //   height: 24,
           // ),
           Image.asset(AppImages.logomini),
-          // SizedBox(
-          //   height: 24,
-          // ),
+          SizedBox(
+            height: 24,
+          ),
           Container(
             width: 250,
             child: Text(
@@ -63,9 +66,9 @@ class _LoginPageState extends State<LoginPage> {
               textAlign: TextAlign.center,
             ),
           ),
-          // SizedBox(
-          //   height: 40,
-          // ),
+          SizedBox(
+            height: 40,
+          ),
           SocialLoginButton(
             onTap: () {
               controller.googleSignIn(context);

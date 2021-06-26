@@ -51,10 +51,12 @@ class BottomSheetWidget extends StatelessWidget {
                   primaryLabel: 'Escanear novamente',
                   primaryOnPressed: () {
                     print('pressed again');
-                    controller.getAvailableCameras();
+                    controller.scanWithCamera();
                   },
                   secondaryLabel: 'Digitar código',
-                  secondaryOnPressed: () {},
+                  secondaryOnPressed: () {
+                    Navigator.pushReplacementNamed(context, '/insert_boleto');
+                  },
                 )
               ],
             ),
