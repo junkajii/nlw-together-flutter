@@ -22,7 +22,8 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
     controller.statusNotifier.addListener(
       () {
         if (controller.status.hasBarcode) {
-          Navigator.pushReplacementNamed(context, '/insert_boleto');
+          Navigator.pushReplacementNamed(context, '/insert_boleto',
+              arguments: controller.status.barcode);
         }
       },
     );
@@ -41,15 +42,16 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
       child: Stack(
         children: [
           ValueListenableBuilder<BarcodeScannerStatus>(
-              valueListenable: controller.statusNotifier,
-              builder: (_, status, __) {
-                if (status.showCamera) {
-                  return Container(
-                    child: status.cameraController!.buildPreview(),
-                  );
-                }
-                return Container();
-              }),
+            valueListenable: controller.statusNotifier,
+            builder: (_, status, __) {
+              if (status.showCamera) {
+                return Container(
+                  child: controller.cameraController!.buildPreview(),
+                );
+              }
+              return Container();
+            },
+          ),
           RotatedBox(
             quarterTurns: 1,
             child: Scaffold(
@@ -75,8 +77,8 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                   Expanded(
                     flex: 2,
                     child: Container(
-                        // color: Colors.grey,
-                        ),
+                      color: Colors.transparent,
+                    ),
                   ),
                   Expanded(
                     child: Container(
@@ -87,7 +89,10 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
               ),
               bottomNavigationBar: SetLabelButtons(
                 primaryLabel: 'Inserir código do boleto',
-                primaryOnPressed: () {},
+                primaryOnPressed: () {
+                  Navigator.pushReplacementNamed(context, '/insert_boleto',
+                      arguments: controller.status.barcode);
+                },
                 secondaryLabel: 'Adicionar da galeria',
                 secondaryOnPressed: () {},
               ),
