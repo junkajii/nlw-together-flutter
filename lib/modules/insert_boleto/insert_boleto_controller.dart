@@ -43,4 +43,12 @@ class InsertBoletoController {
       return await saveBoleto();
     }
   }
+
+  // Future<void> deleteBoleto() async {
+  //   final instance = await SharedPreferences.getInstance();
+  //   final boletos = instance.getStringList('boletos') ?? <String>[];
+  //   boletos.remove(model.toJson());
+  //   await instance.setStringList('boletos', boletos);
+  //   return;
+  // }
 }

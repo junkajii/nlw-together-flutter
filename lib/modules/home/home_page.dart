@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:payflow/modules/extract/extract_page.dart';
 import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/modules/login/login_controller.dart';
 import 'package:payflow/modules/meus_boletos/meus_boletos_page.dart';
 import 'package:payflow/shared/models/user_model.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
+import 'package:payflow/shared/themes/app_images.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class HomePage extends StatefulWidget {
   final UserModel user;
@@ -21,6 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final controller = HomeController();
+  final controllerLogin = LoginController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +54,26 @@ class _HomePageState extends State<HomePage> {
               ),
               trailing: GestureDetector(
                 onTap: () {
-                  print('logout!');
+                  Alert(
+                    context: context,
+                    type: AlertType.info,
+                    image: Image.asset(AppImages.logomini),
+                    title: "Já vai embora?",
+                    desc: "Você deseja mesmo\ndeslogar da sua conta?",
+                    buttons: [
+                      DialogButton(
+                        color: Colors.grey,
+                        child: Text(
+                          "SIgn Out",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        onPressed: () {
+                          controllerLogin.signOut(context);
+                        },
+                        width: 120,
+                      )
+                    ],
+                  ).show();
                 },
                 child: Container(
                   width: 48,
@@ -96,6 +119,7 @@ class _HomePageState extends State<HomePage> {
             GestureDetector(
               onTap: () async {
                 await Navigator.pushNamed(context, '/barcode_scanner');
+                // await Navigator.pushNamed(context, '/insert_boleto');
                 setState(() {});
               },
               child: Container(

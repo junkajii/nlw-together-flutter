@@ -64,7 +64,7 @@ class _MeusBoletosPageState extends State<MeusBoletosPage> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

@@ -24,16 +24,37 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             width: size.width,
             height: 363,
             child: Stack(
+              // alignment: Alignment.bottomCenter,
               children: [
-                Container(
-                  width: size.width,
-                  height: size.height * 0.4,
-                  color: AppColors.primary,
+                Positioned(
+                  top: 0,
+                  child: Container(
+                    width: size.width,
+                    height: size.height * 0.4,
+                    color: AppColors.primary,
+                  ),
+                ),
+                Positioned(
+                  right: 90,
+                  top: 130,
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: AppColors.grey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Icon(
+                      Icons.description_outlined,
+                      color: AppColors.background,
+                    ),
+                  ),
                 ),
                 SafeArea(
                   child: Row(
@@ -48,15 +69,50 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
+                SafeArea(
+                  child: Container(
+                    height: 323,
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [
+                            Colors.white,
+                            Color(0x00FFFFFF),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 80,
+                  bottom: 110,
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: AppColors.grey,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Icon(
+                      Icons.add_box_outlined,
+                      color: AppColors.background,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-          // SizedBox(
-          //   height: 24,
-          // ),
+          SizedBox(
+            height: 20,
+          ),
           Image.asset(AppImages.logomini),
           SizedBox(
-            height: 24,
+            height: 20,
           ),
           Container(
             width: 250,
@@ -67,13 +123,13 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 20,
           ),
           SocialLoginButton(
             onTap: () {
               controller.googleSignIn(context);
             },
-          ),
+          )
         ],
       ),
     );

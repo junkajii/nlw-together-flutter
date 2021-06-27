@@ -25,4 +25,19 @@ class LoginController {
       print(error);
     }
   }
+
+  Future<void> signOut(BuildContext context) async {
+    GoogleSignIn _googleSignIn = GoogleSignIn(
+      scopes: [
+        'email',
+      ],
+    );
+    try {
+      final response = await _googleSignIn.signOut();
+      authController.setUser(context, null);
+      print(response);
+    } catch (error) {
+      print(error);
+    }
+  }
 }
